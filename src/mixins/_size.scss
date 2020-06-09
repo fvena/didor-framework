@@ -1,0 +1,84 @@
+/**
+ * Funciones que devuelven un valor entero proporcional. Ejemplo de uso.
+ *
+ * .foo {
+ *   padding: half(20px);
+ *   margin: double();
+ * }
+ */
+
+@function size($value: 1) {
+  @return $value * $space;
+}
+
+@function quarter($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value / 4;
+}
+
+@function third($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value / 3;
+}
+
+@function half($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value / 2;
+}
+
+@function simple($value: $space) {
+  @if $value == '-' {
+    @return -$space;
+  }
+
+  @return $space;
+}
+
+@function double($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value * 2;
+}
+
+@function triple($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value * 3;
+}
+
+@function quadruple($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value * 4;
+}
+
+@function quintuple($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value * 5;
+}
+
+@function sextuple($value: $space) {
+  @if $value == '-' {
+    $value: -$space;
+  }
+
+  @return $value * 6;
+}

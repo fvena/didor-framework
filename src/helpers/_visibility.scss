@@ -1,0 +1,72 @@
+//
+// Visibilidad
+//
+// Muestra/oculta elementos.
+//
+
+//
+// Las clases se forman con el siguiente formato:
+//
+// .{state}-{breakpoint}
+//
+// {state} Indica si se muestra/oculta
+//   - hidden, visible
+// {breakpoint} Indica a que tamaño de pantalla afecta
+//   - palm, lap, small, desk, large
+//   - Si no se indica ningún tamaño de pantalla, se aplica a todos
+//
+// Ejemplos:
+//   .hidden         // Oculta un elemento
+//   .hidden-palm    // Oculta un elemento solo en tamaños de pantalla móviles
+//   .visible-palm   // Muestra un elemento solo en tamaños de pantalla móviles
+//
+
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    .hidden#{$breakpoint} {
+      display: none !important;
+    }
+  }
+}
+
+@each $breakpoint in $breakpoints-list {
+  $breakpoint-chain: get-breakpoint-sufix($breakpoint);
+
+  @if $breakpoint-chain == '' {
+    .visible {
+      display: block !important;
+    }
+  } @else {
+    .visible#{$breakpoint-chain} {
+      display: none !important;
+
+      @include media($breakpoint) {
+        display: block !important;
+      }
+    }
+  }
+}
+
+//
+// Visibilidad en impresión
+//
+// Muestra/oculta elementos en modo impresión.
+//
+
+@if $print {
+  .hidden-print {
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .visible-print {
+    display: none !important;
+
+    @media print {
+      display: block !important;
+    }
+  }
+}

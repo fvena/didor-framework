@@ -1,0 +1,62 @@
+/**
+ * Maths functions.
+ */
+
+@function rem2px($value: $space) {
+  @return $value / 16px * 1rem;
+}
+
+@function px2em($value: $space) {
+  @return $value / 16px * 1em;
+}
+
+/**
+ * Devuelve el valor 'x' elevado a 'y'. Ejemplo de uso.
+ *
+ * pow(2,2) = 2*2     // 4
+ * pow(2,3) = 2*2*2   // 8
+ */
+@function pow($x, $y) {
+  $ret: 1;
+
+  @if $y > 0 {
+    @for $i from 1 through $y {
+      $ret: $ret * $x;
+    }
+  } @else if $y < 0 {
+    @for $i from $y to 0 {
+      $ret: $ret / $x;
+    }
+  }
+
+  @return $ret;
+}
+
+/**
+ * function used to round width to a number with 2 decimal places - used for IE fallback
+ */
+@function round-width($cols, $total) {
+  $width: floor(100 * $cols * 100 / $total) / 100;
+
+  @return $width#{'%'};
+}
+
+/**
+ * Devuelve el valor máximo de varios números
+ *
+ * padding-left: max(2re, 14px);
+ * padding-left: max(#{half(), env(safe-area-inset-left)}
+ */
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+
+/**
+ * Devuelve el valor mínimo de varios números
+ *
+ * padding-left: min(2re, 14px);
+ * padding-left: min(#{half(), env(safe-area-inset-left)}
+ */
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}

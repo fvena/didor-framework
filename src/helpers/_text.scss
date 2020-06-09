@@ -1,0 +1,129 @@
+//
+// Estilos de texto
+//
+// Genera estilos por defecto en base al tamaño, peso y color
+//
+
+@each $size-name, $size-value in $styles-sizes {
+  @each $weight-name, $weight-value in $styles-weights {
+    @each $color-name, $color-value in $styles-colors {
+      %#{$size-name}-#{$weight-name}-#{$color-name},
+      .#{$size-name}-#{$weight-name}-#{$color-name} {
+        color: $color-value !important;
+        font-size: font-size($size-value) !important;
+        font-weight: $weight-value !important;
+      }
+    }
+  }
+}
+
+//
+// Alineación
+//
+// Modifican como se alinea el texto dentro un elemento.
+//
+
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    .text#{$breakpoint}-left {
+      text-align: left !important;
+    }
+
+    .text#{$breakpoint}-right {
+      text-align: right !important;
+    }
+
+    .text#{$breakpoint}-center {
+      text-align: center !important;
+    }
+
+    .text#{$breakpoint}-justify {
+      text-align: justify !important;
+    }
+  }
+}
+
+//
+// Texto desbordante
+//
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//
+// Transformación
+//
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+//
+// Tamaño
+//
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    @each $font-size-name, $font-size-value in $styles-sizes {
+      .font-size#{$breakpoint}-#{$font-size-name} {
+        font-size: font-size($font-size-name) !important;
+      }
+    }
+  }
+}
+
+@each $font-size-name, $font-size-value in $styles-sizes {
+  .line-height-#{$font-size-name} {
+    line-height: line-height($font-size-name) !important;
+  }
+}
+
+//
+// Apariencia
+//
+
+//
+// Listado de pesos tipográficos
+$font-weights-list: 'extralight', 'light', 'normal', 'semibold', 'bold', 'black';
+
+@each $font-weight in $font-weights-list {
+  .font-weight-#{$font-weight} {
+    font-weight: var(--font-weight-#{$font-weight}) !important;
+  }
+}
+
+.font-italic {
+  font-style: italic !important;
+}
+
+.text-muted {
+  color: $text-muted !important;
+}
+
+.text-hide {
+  text-indent: -10000px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}

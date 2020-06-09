@@ -1,0 +1,36 @@
+$container-width: (
+  'palm': $container-width-palm,
+  'lap': $container-width-lap,
+  'small': $container-width-small,
+  'desk': $container-width-desk,
+  'large': $container-width-large,
+) !default;
+
+.container,
+.container-fluid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @include media(portrait) {
+    padding-left: half();
+    padding-right: half();
+  }
+
+  @include media(screen) {
+    padding-left: simple();
+    padding-right: simple();
+  }
+}
+
+.container {
+  @each $breakpoint-name, $container-max-width in $container-width {
+    @include media($breakpoint-name) {
+      max-width: px2em($container-max-width);
+    }
+  }
+}
+
+.container-fluid {
+  max-width: 100%;
+}

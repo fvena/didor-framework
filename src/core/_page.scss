@@ -1,0 +1,58 @@
+/**
+ * PAGE
+ *
+ * Estilos de página.
+ *
+ * 1. Establece de forma global `box-sizing` como `border-box`.
+ * 2. Asegura que la página ocupe al menos toda la altura de la pantalla.
+ * 3. Fuerza que las barras de navegación estén siempre visibles para evitar los
+ *    saltos cuando navegamos a otras páginas que no tienen suficiente contenido
+ *    para tener que mostrar la barra de navegación.
+ * 4. Previene que algunos navegadores móviles aplique zoom de forma automática
+ *    a los textos.
+ * 5. Evita que las fuentes en OSX tengan un aspecto más grueso comparadas con
+ *    otros navegadores que no renderizan el texto usando antialiaded.
+
+ */
+html {
+  @include rootsize;
+
+  box-sizing: border-box; /* [1] */
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes /* [5] */
+  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes /* [5] */
+  height: 100%; /* [2] */
+  overflow-y: scroll; /* [3] */
+  scroll-behavior: smooth;
+  text-size-adjust: 100%; /* [4] */
+}
+
+body {
+  background-color: color(background);
+  color: color(content);
+  font-family: font-family(base);
+  font-size: font-size(base);
+  font-style: normal;
+  font-weight: font-weight(normal);
+  letter-spacing: $letter-spacing;
+  line-height: line-height(base);
+  min-height: 100%;
+  overflow-x: hidden;
+  text-align: left;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-size-adjust: none;
+    -webkit-touch-callout: none;
+  }
+}

@@ -1,0 +1,127 @@
+$transition-easing: all #{$transition-duration} ease !default;
+$transition-bounce: all #{$transition-duration} cubic-bezier(0.25, 1.43, 0.35, 1.69) !default;
+$transition-fade-in-linear: opacity #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1) !default;
+$transition-fade-in: all #{$transition-duration} cubic-bezier(0.55, 0, 0.1, 1) !default;
+$transition-zoom-in-bottom: transform #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1), opacity #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1) !default;
+$transition-zoom-in-center: all #{$transition-duration} cubic-bezier(0.55, 0, 0.1, 1) !default;
+$transition-zoom-in-left: transform #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1), opacity #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1) !default;
+$transition-zoom-in-right: transform #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1), opacity #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1) !default;
+$transition-zoom-in-top: transform #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1), opacity #{$transition-duration} cubic-bezier(0.23, 1, 0.32, 1) !default;
+
+//
+// Fade-in-linear
+//
+
+.fade-in-linear-transition-enter-active,
+.fade-in-linear-transition-leave-active {
+  transition: $transition-fade-in-linear;
+}
+
+.fade-in-linear-transition-enter,
+.fade-in-linear-transition-leave,
+.fade-in-linear-transition-leave-active {
+  opacity: 0;
+}
+
+//
+// Fade-in-linear
+//
+
+.fade-in-transition-enter-active,
+.fade-in-transition-leave-active {
+  transition: $transition-fade-in;
+}
+
+.fade-in-transition-enter,
+.fade-in-transition-leave-active {
+  opacity: 0;
+}
+
+//
+// Zoom-in-bottom
+//
+
+.zoom-in-bottom-transition-enter-active,
+.zoom-in-bottom-transition-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: center bottom;
+  transition: $transition-zoom-in-bottom;
+}
+
+.zoom-in-bottom-transition-enter,
+.zoom-in-bottom-transition-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+//
+// Zoom-in-center
+//
+
+.zoom-in-center-transition-enter-active,
+.zoom-in-center-transition-leave-active {
+  opacity: 1;
+  transform-origin: center center;
+  transition: $transition-zoom-in-center;
+}
+
+.zoom-in-center-transition-enter,
+.zoom-in-center-transition-leave-active {
+  opacity: 0;
+  transform: scale(0, 0);
+}
+
+//
+// Zoom-in-left
+//
+
+.zoom-in-left-transition-enter-active,
+.zoom-in-left-transition-leave-active {
+  opacity: 1;
+  transform: scale(1, 1);
+  transform-origin: top left;
+  transition: $transition-zoom-in-left;
+}
+
+.zoom-in-left-transition-enter,
+.zoom-in-left-transition-leave-active {
+  opacity: 0;
+  transform: scale(0.45, 0.45);
+}
+
+//
+// Zoom-in-right
+//
+
+.zoom-in-right-transition-enter-active,
+.zoom-in-right-transition-leave-active {
+  opacity: 1;
+  transform: scale(1, 1);
+  transform-origin: top right;
+  transition: $transition-zoom-in-right;
+}
+
+.zoom-in-right-transition-enter,
+.zoom-in-right-transition-leave-active {
+  opacity: 0;
+  transform: scale(0.45, 0.45);
+}
+
+//
+// Zoom-in-top
+//
+
+.zoom-in-top-transition-enter-active,
+.zoom-in-top-transition-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transform-origin: center top;
+  transition: $transition-zoom-in-top;
+}
+
+.zoom-in-top-transition-enter,
+.zoom-in-top-transition-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}

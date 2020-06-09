@@ -1,0 +1,45 @@
+/**
+ * TABLE
+ */
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: simple();
+  min-width: 100%;
+  width: 100%;
+}
+
+td,
+th {
+  border-bottom: 1px solid transparent;
+  padding: quarter();
+  vertical-align: top;
+}
+
+thead th {
+  border-bottom-color: color(border);
+  border-top: 1px solid color(border);
+  font-weight: font-weight(bold);
+  vertical-align: bottom;
+
+  &:nth-child(1) {
+    border-left: 1px solid color(border);
+    border-radius: $border-radius 0 0 $border-radius;
+  }
+
+  &:last-child() {
+    border-radius: 0 $border-radius $border-radius 0;
+    border-right: 1px solid color(border);
+  }
+}
+
+tbody + tbody {
+  border-bottom: 1px solid transparent;
+}
+
+th,
+td,
+tbody + tbody {
+  border-bottom-color: color(border);
+}

@@ -1,0 +1,22 @@
+.list--unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list--inline {
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+    display: inline-block;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      margin-right: simple();
+
+      @include media(palm) {
+        margin-right: half();
+      }
+    }
+  }
+}

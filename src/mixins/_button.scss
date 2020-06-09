@@ -1,0 +1,56 @@
+@mixin button($color, $background1, $background2, $backgroundHover1, $backgroundHover2) {
+  background-image: radial-gradient(circle at 0% 0%, $background1, $background2);
+  color: $color;
+
+  @include hover {
+    background-image: radial-gradient(circle at 0% 0%, $backgroundHover1, $backgroundHover2);
+  }
+
+  .loading {
+    --color-loading: #{$color} !important;
+  }
+
+  &:active {
+    background-image: radial-gradient(circle at 0% 0%, $backgroundHover1, $backgroundHover2);
+  }
+}
+
+@mixin button-plain($color, $background, $backgroundHover) {
+  background-color: $background;
+  background-image: none !important;
+  color: $color !important;
+
+  @include hover {
+    background-color: $backgroundHover !important;
+  }
+
+  .loading {
+    --color-loading: #{$color} !important;
+  }
+
+  &:active {
+    background-color: $backgroundHover !important;
+  }
+}
+
+@mixin button-ghost($color, $border, $colorHover, $borderHover) {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: $button-ghost-border-size solid;
+  border-color: $border;
+  color: $color !important;
+
+  @include hover {
+    border-color: $borderHover !important;
+    color: $colorHover !important;
+  }
+
+  .loading {
+    --color-loading: #{$color} !important;
+  }
+
+  &:active:not(:disabled) {
+    border-color: $borderHover !important;
+    color: $colorHover !important;
+  }
+}

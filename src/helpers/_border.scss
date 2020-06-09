@@ -1,0 +1,94 @@
+//
+// Bordes
+//
+// Aplica/Elimina un borde predefinido a un elemento
+//
+// Se puede aplicar a:
+//   .border - Todos los lados a la vez
+//   .border-{top,right,bottom,left} - A un solo lado
+//   .no-border - Elimina todos los bordes de un elemento
+//   .no-border-{top,right,bottom,left} - Elimina el borde de un solo lado
+//
+
+.border {
+  border-color: color(border);
+  border-style: solid !important;
+  border-width: $border-width !important;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+@each $position in ('top', 'right', 'bottom', 'left') {
+  .border-#{$position} {
+    border-#{$position}-width: $border-width !important;
+    border-#{$position}-style: solid !important;
+    border-#{$position}-color: color(border);
+  }
+
+  .no-border-#{$position} {
+    border-#{$position}: none !important;
+  }
+}
+
+//
+// Esquinas redondeadas
+//
+// Aplica/Elimina una esquina redondeada a un elemento
+//
+// Se puede aplicar a:
+//   .rounded - Todas las esquinas a la vez
+//   .rounded-{top,right,bottom,left} - A las esquinas de un lado
+//   .rounded-{top,right}-{top,bottom} - Una esquina individualmente
+//   .rounded-circle - Redondea todas las esquinas hasta convertir al elemento en un círculo
+//   .no-rounded - Elimina todas las esquinas redondeadas
+//
+
+.rounded {
+  border-radius: $border-radius !important;
+}
+
+.rounded-top {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+.rounded-right {
+  border-bottom-right-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+.rounded-bottom {
+  border-bottom-left-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}
+
+.rounded-left {
+  border-bottom-left-radius: $border-radius !important;
+  border-top-left-radius: $border-radius !important;
+}
+
+.rounded-top-left {
+  border-top-left-radius: $border-radius !important;
+}
+
+.rounded-top-right {
+  border-top-right-radius: $border-radius !important;
+}
+
+.rounded-bottom-left {
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.rounded-bottom-right {
+  border-bottom-right-radius: $border-radius !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.no-rounded {
+  border-radius: 0 !important;
+}

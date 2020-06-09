@@ -1,0 +1,62 @@
+/**
+ * LISTS
+ *
+ */
+
+ol,
+ul,
+dl {
+  margin-bottom: simple();
+  margin-top: 0;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+dt {
+  font-weight: font-weight(bold);
+}
+
+dd {
+  margin-bottom: spacers('1/2');
+  margin-left: 0; // Undo browser default
+}
+
+/**
+ * Elimina el espacio vertical extra, cuando anidamos varias listas.
+ */
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+ul > li,
+ol > li {
+  margin-left: simple();
+}
+
+// Definition lists.
+dl {
+  dt,
+  dd {
+    margin-left: 0;
+
+    @include media(palm) {
+      margin-left: half();
+    }
+  }
+
+  dt {
+    font-weight: font-weight(normal);
+  }
+
+  dd + dt {
+    padding-top: 1rem;
+  }
+}

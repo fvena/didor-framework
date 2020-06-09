@@ -1,0 +1,144 @@
+//
+// Grupo Tema
+//
+$theme: (
+  'brand-darker': $brand-darker,
+  'brand-dark': $brand-dark,
+  'brand': $brand,
+  'brand-light': $brand-light,
+  'brand-lighter': $brand-lighter,
+  'brand-a20': $brand-a20,
+  'warning-darker': $warning-darker,
+  'warning-dark': $warning-dark,
+  'warning': $warning,
+  'warning-light': $warning-light,
+  'warning-lighter': $warning-lighter,
+  'warning-a20': $warning-a20,
+  'success-darker': $success-darker,
+  'success-dark': $success-dark,
+  'success': $success,
+  'success-light': $success-light,
+  'success-lighter': $success-lighter,
+  'success-a20': $success-a20,
+  'danger-darker': $danger-darker,
+  'danger-dark': $danger-dark,
+  'danger': $danger,
+  'danger-light': $danger-light,
+  'danger-lighter': $danger-lighter,
+  'danger-a20': $danger-a20,
+  'default-darker': $color-gray2,
+  'default-dark': $color-gray3,
+  'default': $color-gray4,
+  'default-light': $color-gray5,
+  'default-lighter': $color-gray6,
+);
+
+//
+// Grupo Tema claro
+//
+$light-theme: (
+  'gray1': $color-gray1,
+  'gray2': $color-gray2,
+  'gray3': $color-gray3,
+  'gray4': $color-gray4,
+  'gray5': $color-gray5,
+  'gray6': $color-gray6,
+  'gray7': $color-gray7,
+  'gray8': $color-gray8,
+  'white': $color-white,
+  'black': $color-black,
+);
+
+//
+// Grupo Tema oscuro
+//
+$dark-theme: (
+  'gray1': $color-gray8,
+  'gray2': $color-gray7,
+  'gray3': $color-gray6,
+  'gray4': $color-gray5,
+  'gray5': $color-gray4,
+  'gray6': $color-gray3,
+  'gray7': $color-gray2,
+  'gray8': $color-gray1,
+  'white': $color-white,
+  'black': $color-black,
+);
+
+//
+// Genera un listado de variables css con la paleta de colores
+//
+:root {
+  @each $name, $color in $theme {
+    --color-#{$name}: #{$color};
+  }
+
+  /* Semantic color */
+  --color-content: #{$color-content};
+  --color-heading: #{$color-heading};
+  --color-caption: #{$color-caption};
+  --color-background: #{$color-background};
+  --color-link: #{$color-link};
+  --color-link-hover: #{$color-link-hover};
+  --color-border: #{$color-border};
+  --color-mark: #{$color-mark};
+  --color-mark-background: #{$color-mark-background};
+  --color-loading: #{$color-loading};
+}
+
+:root,
+[data-theme='light'] {
+  @each $name, $color in $light-theme {
+    --color-#{$name}: #{$color};
+  }
+
+  --color-shadow: 22, 34, 38; // Only values rgb color
+}
+
+[data-theme='dark'] {
+  @each $name, $color in $dark-theme {
+    --color-#{$name}: #{$color};
+  }
+
+  --color-shadow: 0, 0, 0; // Only values rgb color
+}
+
+//
+// Color de fondo
+//
+// Modifica el color de fondo de un elemento
+//
+
+@each $name, $color in $theme {
+  .background-#{$name} {
+    background-color: $color !important;
+  }
+}
+
+@each $name, $color in $light-theme {
+  .background-#{$name} {
+    background-color: $color !important;
+  }
+}
+
+.background-transparent {
+  background-color: transparent !important;
+}
+
+//
+// Color del texto
+//
+// Modifica el color del texto de un elemento
+//
+
+@each $name, $color in $theme {
+  .color-#{$name} {
+    color: $color !important;
+  }
+}
+
+@each $name, $color in $light-theme {
+  .color-#{$name} {
+    color: $color !important;
+  }
+}

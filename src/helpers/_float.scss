@@ -1,0 +1,37 @@
+//
+// Float
+//
+// Modifica el modo en que flota un elemento.
+//
+
+//
+// Las clases se forman con el siguiente formato:
+//
+// .float-{breakpoint}-{value}
+//
+// {breakpoint} Indica a que tamaño de pantalla afecta
+//   - palm, lap, small, desk, large
+//   - Si no se indica ningún tamaño de pantalla, se aplica a todos
+// {value} Indica donde flota
+//   - none, left, right
+//
+// Ejemplos:
+//   .float-left         // Flota un elemento a la izquierda
+//   .float-palm-left    // Flota un elemento a la izquierda solo en tamaños de pantalla móviles
+//
+
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    .float#{$breakpoint}-none {
+      float: none !important;
+    }
+    .float#{$breakpoint}-left {
+      float: left !important;
+    }
+    .float#{$breakpoint}-right {
+      float: right !important;
+    }
+  }
+}

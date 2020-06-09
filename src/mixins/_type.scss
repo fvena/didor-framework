@@ -1,0 +1,112 @@
+/**
+ * TYPE MIXIN
+ */
+
+/**
+ * ROOTSIZE
+ *
+ * Genera los tamaños de fuente por defecto en %, por cada breakpoint.
+ * Ejemplo de uso.
+ *
+ * body {
+ *   @include rootsize;
+ * }
+ */
+@mixin rootsize {
+  $base-breakpoints: desk;
+
+  // Compruebo si es mobile first
+  @if ($mobile-first) {
+    $base-breakpoints: palm;
+  }
+
+  // Breakpoint base
+  font-size: calc(var(--root-font-size-#{$base-breakpoints}) / 16 * 100%);
+
+  // Recorre todos los breakpoint.
+  @each $breakpoint in $breakpoints-list {
+    @include media($breakpoint) {
+      font-size: calc(var(--root-font-size-#{$breakpoint}) / 16 * 100%);
+    }
+  }
+}
+
+//
+// Tamaño de fuente
+//
+// Admite un valor númerico o un alias de la escala modular.
+//
+
+@function font-size($size) {
+  // Tipo de la variable $fontsize
+  $font-value: type-of($size);
+
+  // Si el valor del $size es un número
+  @if $font-value == number {
+    $module: pow($modular-scale, $size);
+
+    @return #{$module}rem;
+  }
+
+  // Si el valor del $size no es un número y es el alias de la escala modular
+  @else {
+    @if map-has-key($styles-sizes, $size) {
+      $level: map-get($styles-sizes, $size);
+      $module: pow($modular-scale, $level);
+
+      @return #{$module}rem;
+    }
+  }
+}
+
+//
+// Altura de línea
+//
+// Admite un valor númerico o un alias de la escala modular.
+//
+
+@function line-height($size) {
+  // Tipo de la variable $size
+  $font-value: type-of($size);
+
+  // Si el valor del $size es un número
+  @if $font-value == number {
+    $module: pow($modular-scale, $size);
+
+    @return #{ceil(($module * 2.5) / $space) * ($space / 2)}rem;
+  }
+
+  // Si el valor del $size no es un número y es el alias de la escala modular
+  @else {
+    @if map-has-key($styles-sizes, $size) {
+      $level: map-get($styles-sizes, $size);
+      $module: pow($modular-scale, $level);
+
+      @return #{ceil(($module * 2.5) / $space) * ($space / 2)}rem;
+    }
+  }
+}
+
+//
+// Peso tipográfico
+//
+// Devuele el valor del peso seleccionado
+//
+// .header { font-weight: font-weight(bold); }
+//
+
+@function font-weight($weight) {
+  @return var(--font-weight-#{$weight});
+}
+
+//
+// Familia tipográfica
+//
+// Devuele el valor de la familia seleccionada
+//
+// .header { font-family: font-family(heading); }
+//
+
+@function font-family($family) {
+  @return var(--font-family-#{$family});
+}

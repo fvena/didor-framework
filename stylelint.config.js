@@ -1,21 +1,11 @@
 module.exports = {
   extends: [
     // Use the Standard config as the base
-    // https://github.com/stylelint/stylelint-config-standard
-    'stylelint-config-standard',
-    // Enforce a standard order for CSS properties
-    // https://github.com/stormwarning/stylelint-config-recess-order
-    'stylelint-config-recess-order',
+    // https://github.com/bjankord/stylelint-config-sass-guidelines
+    'stylelint-config-sass-guidelines',
     // Override rules that would interfere with Prettier
     // https://github.com/shannonmoeller/stylelint-config-prettier
     'stylelint-config-prettier',
-    // Override rules to allow linting of CSS modules
-    // https://github.com/pascalduez/stylelint-config-css-modules
-    'stylelint-config-css-modules',
-  ],
-  plugins: [
-    // Bring in some extra rules for SCSS
-    'stylelint-scss',
   ],
   // Rule lists:
   // - https://stylelint.io/user-guide/rules/
@@ -27,10 +17,13 @@ module.exports = {
     // to avoid very slow selectors
     'selector-max-universal': 1,
     'selector-max-type': null,
+    'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
+    'selector-class-pattern': '^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$',
     'no-descending-specificity': null,
     'no-empty-source': null,
     'color-hex-length': 'long',
     'no-duplicate-selectors': null,
+    'max-nesting-depth': 3,
     // ===
     // PRETTIER
     // ===
