@@ -1,0 +1,84 @@
+//
+// Modo de visualización
+//
+// Modifica el modo en que se visualiza un elemento.
+//
+
+//
+// Las clases se forman con el siguiente formato:
+//
+// .display-{breakpoint}-{value}
+//
+// {breakpoint} Indica a que tamaño de pantalla afecta
+//   - palm, lap, small, desk, large
+//   - Si no se indica ningún tamaño de pantalla, se aplica a todos
+// {value} Indica el tamaño del margen
+//   - none, inline, inline-block, block
+//
+// Ejemplos:
+//   .display-none         // Oculta un elemento
+//   .display-palm-none    // Oculta un elemento solo en tamaños de pantalla móviles
+//
+
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    .display#{$breakpoint}-none {
+      display: none !important;
+    }
+    .display#{$breakpoint}-inline {
+      display: inline !important;
+    }
+    .display#{$breakpoint}-inline-block {
+      display: inline-block !important;
+    }
+    .display#{$breakpoint}-block {
+      display: block !important;
+    }
+  }
+}
+
+//
+// Modo de visualización en impresión
+//
+// Modifica el modo en que se visualiza un elemento en modo impresión
+//
+
+//
+// Las clases se forman con el siguiente formato:
+//
+// .display-print-{value}
+//
+// {value} Indica el tamaño del margen
+//   - none, inline, inline-block, block
+//
+// Ejemplos:
+//   .display-print-none     // Oculta un elemento al imprimir la página
+//   .display-print-block    // Muestra un elemento como bloque al imprimir la página
+//
+@if $print {
+  .display-print-none {
+    @media print {
+      display: none !important;
+    }
+  }
+
+  .display-print-inline {
+    @media print {
+      display: inline !important;
+    }
+  }
+
+  .display-print-inline-block {
+    @media print {
+      display: inline-block !important;
+    }
+  }
+
+  .display-print-block {
+    @media print {
+      display: block !important;
+    }
+  }
+}

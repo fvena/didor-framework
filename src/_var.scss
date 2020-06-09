@@ -1,0 +1,260 @@
+//
+// Prefijo de la librería
+//
+$prefix: 'dd-';
+
+//
+// Paleta de colores
+//
+// Colores de marca, estado y neutros
+//
+
+//
+// Colores de Marca
+//
+$brand-darker: hsl(190, 90%, 25%) !default;
+$brand-dark: hsl(190, 70%, 35%) !default;
+$brand: hsl(190, 65%, 45%) !default;
+$brand-light: hsl(190, 65%, 65%) !default;
+$brand-lighter: hsl(190, 60%, 85%) !default;
+$brand-a20: hsla(190, 65%, 45%, 0.2) !default;
+
+//
+// Colores de Estado (Feedback)
+//
+$warning-darker: hsl(39, 100%, 35%) !default;
+$warning-dark: hsl(41, 100%, 45%) !default;
+$warning: hsl(41, 100%, 60%) !default;
+$warning-light: hsl(41, 100%, 75%) !default;
+$warning-lighter: hsl(41, 100%, 90%) !default;
+$warning-a20: hsla(41, 100%, 60%, 0.2) !default;
+
+$success-darker: hsl(94, 80%, 30%) !default;
+$success-dark: hsl(94, 67%, 41%) !default;
+$success: hsl(94, 52%, 50%) !default;
+$success-light: hsl(94, 66%, 70%) !default;
+$success-lighter: hsl(94, 70%, 90%) !default;
+$success-a20: hsla(94, 52%, 52%, 0.2) !default;
+
+$danger-darker: hsl(6, 100%, 30%) !default;
+$danger-dark: hsl(6, 100%, 45%) !default;
+$danger: hsl(6, 100%, 60%) !default;
+$danger-light: hsl(6, 100%, 75%) !default;
+$danger-lighter: hsl(6, 100%, 90%) !default;
+$danger-a20: hsla(6, 100%, 60%, 0.2) !default;
+
+//
+// Colores Neutros
+//
+$color-gray1: hsl(196, 25%, 12%) !default;
+$color-gray2: hsl(198, 17%, 28%) !default;
+$color-gray3: hsl(200, 5%, 46%) !default;
+$color-gray4: hsl(198, 7%, 64%) !default;
+$color-gray5: hsl(202, 13%, 83%) !default;
+$color-gray6: hsl(206, 17%, 92%) !default;
+$color-gray7: hsl(220, 18%, 97%) !default;
+$color-gray8: hsl(220, 20%, 99%) !default;
+
+$color-black: hsl(0, 0%, 0%) !default;
+$color-white: hsl(0, 0%, 100%) !default;
+$color-transparent: transparent !default;
+
+//
+// Colores Semánticos
+//
+$color-content: color(gray2) !default;
+$color-heading: color(gray1) !default;
+$color-caption: color(gray4) !default;
+$color-background: color('white') !default;
+$color-link: color(brand) !default;
+$color-link-hover: color(brand-dark) !default;
+$color-border: color(gray6) !default;
+$color-mark: color(content) !default;
+$color-mark-background: color(brand-a20) !default;
+$color-loading: color(brand) !default;
+
+:root {
+  //
+  // Tipografía
+  //
+
+  // Familias tipográficas
+  //
+  --font-family-base: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif;
+  --font-family-heading: 'Source Sans Pro', Helvetica Neue, Arial, sans-serif;
+  --font-family-monospace: 'Fira Code', 'Courier New', Courier, monospace;
+
+  // Tamaños de fuente por tamaño de pantalla en px
+  // Importante: No poner las unidades (px)
+  //
+  --root-font-size-palm: 16;
+  --root-font-size-lap: 16;
+  --root-font-size-small: 16;
+  --root-font-size-desk: 17;
+  --root-font-size-large: 17;
+
+  // Pesos tipográficos
+  //
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: normal;
+  --font-weight-semibold: 600;
+  --font-weight-bold: bold;
+  --font-weight-black: 900;
+
+  --font-weight-heading: var(--font-weight-bold);
+}
+
+// Altura de linea
+//
+$line-height: 1.6 !default;
+
+// Escala modular
+//
+// Valores sugeridos de escala (http://type-scale.com/)
+//
+//   second: 1.067
+//   major-second: 1.125
+//   minor-third: 1.2
+//   major-third: 1.25
+//   perfect-fourth: 1.333
+//   augmented-fourth: 1.414
+//   perfect-fifth: 1.5
+//   golden: 1.618
+//
+$modular-scale: 1.175 !default;
+
+// Tracking
+//
+$letter-spacing: 0 !default;
+
+// Color del texto silenciado
+//
+$text-muted: color(gray2) !default;
+
+// Links
+//
+// $link-color: $color-primary !default;
+// $link-color-hover: darken-lightness($link-color, 20%) !default;
+$link-decoration: none !default;
+$link-decoration-hover: underline !default;
+
+/**
+ * Estilos de texto
+ */
+$styles-sizes: (
+  'h1': 5,
+  'h2': 4,
+  'h3': 3,
+  'h4': 2,
+  'h5': 1,
+  'base': 0,
+  'small1': -1,
+  'small2': -2,
+) !default;
+
+$styles-weights: (
+  'regular': var(--font-weight-normal),
+  'medium': var(--font-weight-bold),
+) !default;
+
+$styles-colors: (
+  'black': color(gray1),
+  'gray': color(gray4),
+  'white': #ffffff,
+) !default;
+
+/**
+ * SPACE AND LAYOUT SETTINGS
+ */
+$grid-columns: 12 !default;
+$container-width-palm: 670px !default;
+$container-width-lap: 670px !default;
+$container-width-small: 670px !default;
+$container-width-desk: 670px !default;
+$container-width-large: 670px !default;
+
+$space: $line-height * 1rem !default;
+
+$spacing-map: (
+  'none': 0,
+  'quarter': $space / 4,
+  'half': $space / 2,
+  'simple': $space,
+  'double': $space * 2,
+  'triple': $space * 3,
+  'quadruple': $space * 4,
+  'quintuple': $space * 5,
+  'sextuple': $space * 6,
+) !default;
+
+$size-percentages: (
+  '25': 25%,
+  '50': 50%,
+  '75': 75%,
+  '100': 100%,
+) !default;
+
+/**
+ * STYLE SETTINGS
+ */
+$border-width: 1px !default;
+$border-color: color(border) !default;
+$border-radius: 5px !default;
+
+/**
+ * Z-INDEX OF LAYERS
+ */
+$z-index-negative: -1 !default;
+$z-index-page: 1 !default;
+$z-index-aside: 5 !default;
+$z-index-header: 5 !default;
+$z-index-dropdown: 10 !default;
+$z-index-sticky: 10 !default;
+$z-index-fixed: 10 !default;
+$z-index-modal: 15 !default;
+$z-index-popover: 20 !default;
+$z-index-tooltip: 25 !default;
+
+// Transiciones
+//
+$transition-duration: 300ms !default;
+
+/**
+ * RESPONSIVE SETTINGS
+ */
+
+/**
+ * Breakpoints
+ * Valor en em del tamaño máximo de pantalla
+ *
+ * Existen 5 tamaños de pantalla definidos:
+ *   palm  - Móviles                                  (0 - 600px)
+ *   lap   - Tablet verticales y Móviles horizontales (601px - 900px)
+ *   small - Tablet horizontales                      (901px - 1200px)
+ *   desk  - Portátiles y monitores pequeños          (1201px - 1600px)
+ *   large - Monitores grandes                        (1601px - ...)
+ */
+
+$palm: 600px !default; // ~37.5em
+$lap: 900px !default; // ~56.25em
+$small: 1200px !default; // ~75em
+$desk: 1600px !default; // ~100em
+
+/**
+ * Mobile First
+ *
+ * Indica si se trata de un diseño siguiendo el enfoque Mobile First
+ */
+$mobile-first: false !default;
+$responsive: true !default;
+
+/**
+ * Print
+ * Indica si el contenido es susceptible de ser imprimido o guardado como pdf
+ */
+$print: false !default;
+
+.demo-container > * {
+  margin-bottom: 0;
+}

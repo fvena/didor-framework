@@ -1,0 +1,11 @@
+//
+// Color
+//
+// Devuele el color en formato variable css seleccionado
+//
+// .elemento { background-color: color(brand); }
+//
+
+@function color($color) {
+  @return var(--color-#{$color});
+}

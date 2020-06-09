@@ -1,0 +1,345 @@
+//
+// Estilos para los botones
+//
+
+//
+// Variables
+//
+$button-ghost-border-size: 1px !default;
+$button-font-size: font-size(base) !default;
+$button-font-weight: font-weight(bold) !default;
+
+// Valores Default
+$button-default-gradient-color: #ffffff !default;
+$button-default-gradient-background1: color(gray3) !default;
+$button-default-gradient-background2: color(gray2) !default;
+$button-default-gradient-background1-hover: color(gray2) !default;
+$button-default-gradient-background2-hover: color(gray1) !default;
+$button-default-plain-color: #ffffff !default;
+$button-default-plain-background: color(gray3) !default;
+$button-default-plain-background-hover: color(gray2) !default;
+$button-default-ghost-color: color(gray3) !default;
+$button-default-ghost-border: color(gray4) !default;
+$button-default-ghost-color-hover: color(gray2) !default;
+$button-default-ghost-border-hover: color(gray3) !default;
+
+// Valores Brand
+$button-brand-gradient-color: #ffffff !default;
+$button-brand-gradient-background1: color(brand-light) !default;
+$button-brand-gradient-background2: color(brand) !default;
+$button-brand-gradient-background1-hover: color(brand) !default;
+$button-brand-gradient-background2-hover: color(brand-dark) !default;
+$button-brand-plain-color: #ffffff !default;
+$button-brand-plain-background: color(brand) !default;
+$button-brand-plain-background-hover: color(brand-dark) !default;
+$button-brand-ghost-color: color(brand) !default;
+$button-brand-ghost-border: color(brand-light) !default;
+$button-brand-ghost-color-hover: color(brand-darker) !default;
+$button-brand-ghost-border-hover: color(brand) !default;
+
+// Valores Success
+$button-success-gradient-color: #ffffff !default;
+$button-success-gradient-background1: color(success-light) !default;
+$button-success-gradient-background2: color(success) !default;
+$button-success-gradient-background1-hover: color(success) !default;
+$button-success-gradient-background2-hover: color(success-dark) !default;
+$button-success-plain-color: #ffffff !default;
+$button-success-plain-background: color(success) !default;
+$button-success-plain-background-hover: color(success-darker) !default;
+$button-success-ghost-color: color(success) !default;
+$button-success-ghost-border: color(success-light) !default;
+$button-success-ghost-color-hover: color(success-darker) !default;
+$button-success-ghost-border-hover: color(success) !default;
+
+// Valores Warning
+$button-warning-gradient-color: #ffffff !default;
+$button-warning-gradient-background1: color(warning-light) !default;
+$button-warning-gradient-background2: color(warning) !default;
+$button-warning-gradient-background1-hover: color(warning) !default;
+$button-warning-gradient-background2-hover: color(warning-dark) !default;
+$button-warning-plain-color: #ffffff !default;
+$button-warning-plain-background: color(warning) !default;
+$button-warning-plain-background-hover: color(warning-darker) !default;
+$button-warning-ghost-color: color(warning) !default;
+$button-warning-ghost-border: color(warning-light) !default;
+$button-warning-ghost-color-hover: color(warning-darker) !default;
+$button-warning-ghost-border-hover: color(warning) !default;
+
+// Valores Danger
+$button-danger-gradient-color: #ffffff !default;
+$button-danger-gradient-background1: color(danger-light) !default;
+$button-danger-gradient-background2: color(danger) !default;
+$button-danger-gradient-background1-hover: color(danger) !default;
+$button-danger-gradient-background2-hover: color(danger-dark) !default;
+$button-danger-plain-color: #ffffff !default;
+$button-danger-plain-background: color(danger) !default;
+$button-danger-plain-background-hover: color(danger-darker) !default;
+$button-danger-ghost-color: color(danger) !default;
+$button-danger-ghost-border: color(danger-light) !default;
+$button-danger-ghost-color-hover: color(danger-darker) !default;
+$button-danger-ghost-border-hover: color(danger) !default;
+
+.button {
+  /* stylelint-disable-next-line */
+  $rootClass: &;
+
+  //
+  // Default Style
+  //
+  @include button($button-default-gradient-color, $button-default-gradient-background1, $button-default-gradient-background2, $button-default-gradient-background1-hover, $button-default-gradient-background2-hover);
+  align-items: center;
+  appearance: none;
+  border: transparent;
+  border-radius: $border-radius;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  height: double();
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 simple();
+
+  //
+  // Base Style
+  //
+  position: relative;
+  text-align: center;
+  text-size-adjust: 100%;
+  transition: 0.4s ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+
+  //
+  // Click Effect
+  //
+  &:active::after {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+  }
+
+  //
+  // Plain Style
+  //
+  &--plain {
+    @include button-plain($button-default-plain-color, $button-default-plain-background, $button-default-plain-background-hover);
+  }
+
+  //
+  // Ghost Style
+  //
+  &--ghost {
+    @include button-ghost($button-default-ghost-color, $button-default-ghost-border, $button-default-ghost-color-hover, $button-default-ghost-border-hover);
+  }
+
+  //
+  // Focus
+  //
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+
+  //
+  // Icon
+  //
+  &--icon {
+    .icon {
+      height: 1.5em;
+      margin: 0;
+      width: 1.5em;
+
+      + * {
+        margin-left: size(0.3);
+      }
+    }
+  }
+
+  &--icon-right {
+    flex-direction: row-reverse;
+
+    .icon + * {
+      margin-left: 0;
+      margin-right: size(0.3);
+    }
+  }
+
+  &--icon-top {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+
+    .icon + * {
+      margin-left: 0;
+      margin-top: size(0.3);
+    }
+  }
+
+  &--icon-bottom {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 1rem;
+
+    .icon + * {
+      margin-bottom: size(0.3);
+      margin-left: 0;
+    }
+  }
+
+  &--icon-only {
+    padding: 0;
+    width: double();
+  }
+
+  //
+  // Shapes Style
+  //
+  &--square {
+    border-radius: 0;
+  }
+
+  &--circle {
+    border-radius: 50px;
+  }
+
+  //
+  // Disabled Style
+  //
+  &:disabled:not(&--loading),
+  &--disabled:not(&--loading) {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  //
+  // Block Style
+  //
+  &--block {
+    display: flex;
+    margin-bottom: simple();
+    width: 100%;
+  }
+
+  //
+  // Sizes Style
+  //
+  &--large {
+    font-size: font-size(base);
+    height: size(2.5);
+    line-height: 1;
+    padding: 0 double();
+
+    .loading {
+      top: 1rem !important;
+    }
+
+    &#{$rootClass}--icon-only {
+      padding: 0;
+      width: size(2.5);
+    }
+  }
+
+  &--small {
+    font-size: font-size(small2);
+    height: size(1.5);
+    line-height: 1;
+
+    .loading {
+      top: 0.35rem !important;
+    }
+
+    &#{$rootClass}--icon-only {
+      padding: 0;
+      width: size(1.5);
+    }
+  }
+
+  //
+  // Loading Style
+  //
+  &--loading {
+    flex-direction: row;
+
+    .loading {
+      font-size: 0.8em;
+    }
+
+    .loading + span {
+      margin-left: half();
+    }
+  }
+
+  &--loadingIconOnly {
+    .loading {
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .loading + span {
+      margin-left: 0;
+      opacity: 0;
+    }
+  }
+
+  //
+  // Button types
+  //
+  &--brand {
+    @include button($button-brand-gradient-color, $button-brand-gradient-background1, $button-brand-gradient-background2, $button-brand-gradient-background1-hover, $button-brand-gradient-background2-hover);
+
+    &#{$rootClass}--plain {
+      @include button-plain($button-brand-plain-color, $button-brand-plain-background, $button-brand-plain-background-hover);
+    }
+
+    &#{$rootClass}--ghost {
+      @include button-ghost($button-brand-ghost-color, $button-brand-ghost-border, $button-brand-ghost-color-hover, $button-brand-ghost-border-hover);
+    }
+  }
+
+  &--success {
+    @include button($button-success-gradient-color, $button-success-gradient-background1, $button-success-gradient-background2, $button-success-gradient-background1-hover, $button-success-gradient-background2-hover);
+
+    &#{$rootClass}--plain {
+      @include button-plain($button-success-plain-color, $button-success-plain-background, $button-success-plain-background-hover);
+    }
+
+    &#{$rootClass}--ghost {
+      @include button-ghost($button-success-ghost-color, $button-success-ghost-border, $button-success-ghost-color-hover, $button-success-ghost-border-hover);
+    }
+  }
+
+  &--danger {
+    @include button($button-danger-gradient-color, $button-danger-gradient-background1, $button-danger-gradient-background2, $button-danger-gradient-background1-hover, $button-danger-gradient-background2-hover);
+
+    &#{$rootClass}--plain {
+      @include button-plain($button-danger-plain-color, $button-danger-plain-background, $button-danger-plain-background-hover);
+    }
+
+    &#{$rootClass}--ghost {
+      @include button-ghost($button-danger-ghost-color, $button-danger-ghost-border, $button-danger-ghost-color-hover, $button-danger-ghost-border-hover);
+    }
+  }
+
+  &--warning {
+    @include button($button-warning-gradient-color, $button-warning-gradient-background1, $button-warning-gradient-background2, $button-warning-gradient-background1-hover, $button-warning-gradient-background2-hover);
+
+    &#{$rootClass}--plain {
+      @include button-plain($button-warning-plain-color, $button-warning-plain-background, $button-warning-plain-background-hover);
+    }
+
+    &#{$rootClass}--ghost {
+      @include button-ghost($button-warning-ghost-color, $button-warning-ghost-border, $button-warning-ghost-color-hover, $button-warning-ghost-border-hover);
+    }
+  }
+}

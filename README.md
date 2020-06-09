@@ -32,7 +32,7 @@ Para ver la documentación completa visita [didor docs](https://fvena.github.io/
 
 ## Características
 
-* Permite alternar entre una arquitectura Mobile-first o Desktop-first
+<!-- * Permite alternar entre una arquitectura Mobile-first o Desktop-first -->
 * Permite compartir interfaces entre proyectos
 * Librería de componentes en continuo crecimiento y optimización
 * Funciona bien con cualquier framework: vue, react, angular, rails, ...
@@ -52,39 +52,25 @@ Esta es un micro librería SCSS que te ayudará a construir aplicaciones:
 Puedes instalar Didor en tu proyecto mediante npm o yarn:
 
 ```bash
-npm install @didor/scss --save-dev
+npm install @didor/framework --save-dev
 ```
 
 ```bash
-yarn add @didor/scss
+yarn add @didor/framework
 ```
 
 ## Añadir Didor a nuestro proyecto
 
-Existen dos opciones para añadir Didor a tu proyecto:
-
-#### Importación
-
 La mejor forma de añadir Didor a tu proyecto es importarlo directamente en tu archivo Sass/Scss principal. De esta manera tendrás más control del orden de los estilos y podrás utilizar las herramientas que incorporan.
 
-Puedes importarlo todo, mediante el archivo `didor`, o puedes elegir que partes te interesa utilizar en tu proyecto.
-
 ```scss
-@import '@didor/scss/src/didor';
+@import '@didor/lib/index';
 ```
 
-```scss
-@import '@didor/scss/src/tools';
-@import '@didor/scss/src/base';
-@import '@didor/scss/src/components';
-```
-
-**Importante**, siempre necesitarás importar `tools` para poder utilizar el estilo base o el estilo de los componentes.
-
-#### Directamente en el html
+O directamente en el html
 
 ```html
-<link rel="stylesheet" href="css/didor.min.css">
+<link rel="stylesheet" href="dist/didor.min.css">
 ```
 
 ## Personalización

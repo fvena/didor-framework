@@ -1,0 +1,37 @@
+/**
+ * IMAGES
+ *
+ * 1. Imágenes llenan todo el ancho para mejorar la adaptación a distintas pantallas.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Elimina el espacio en blanco que aparece debajo del elemento 'img'.
+ *    Mejor alternativa que usar 'display:block'.
+ */
+img {
+  box-sizing: content-box;
+  font-style: italic; /* [2] */
+  height: auto;
+  -ms-interpolation-mode: bicubic; /* stylelint-disable-line */
+  max-width: 100%; /* [1] */
+  vertical-align: middle; /* [3] */
+
+  // In Internet Explorer 10, SVG images with .-responsive are
+  // disproportionately sized. This fix improperly sizes other image formats,
+  // so Didor will only apply it to svg extensions
+  &[src$='.svg'] {
+    width: 100% \9;
+  }
+}
+
+/**
+ * GOOGLE MAPS
+ *
+ * 1. Los mapas de Google se rompen si `max-width: 100%`; usamos su propio
+ *    selector para evitar este problema.
+ * 2. Si se define de forma explicita la altura o anchura de una imagen, tenemos
+ *    que evitar que se adapte para que no se deforme.
+ */
+.gm-style img,
+img[width],
+img[height] {
+  max-width: none; /* [1, 2] */
+}

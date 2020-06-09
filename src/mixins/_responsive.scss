@@ -1,0 +1,79 @@
+/**
+ * RESPONSIVE MIXIN
+ */
+
+$breakpoints-list: 'all', 'palm', 'lap', 'small', 'desk', 'large';
+
+/**
+ * Desk First Alias
+ *
+ * Listado de los alias con los puntos de corte para un desarrollo.
+ * Puedes cambiarles el nombre, el valor o añadir más puntos.
+ */
+$breakpoints: (
+  'palm': 'screen and (max-width: #{px2em($palm - 1)})',
+  'lap': 'screen and (min-width: #{px2em($palm)}) and (max-width: #{px2em($lap - 1)})',
+  'small': 'screen and (min-width: #{px2em($lap)}) and (max-width: #{px2em($small - 1)})',
+  'desk': 'screen and (min-width: #{px2em($small)}) and (max-width: #{px2em($desk - 1)})',
+  'large': 'screen and (min-width: #{px2em($desk)})',
+  'portrait': 'screen and (max-width: #{px2em($lap - 1)})',
+  'landscape': 'screen and (min-width: #{px2em($lap)})',
+  'touch': 'screen and (max-width: #{px2em($small - 1)})',
+  'screen': 'screen and (min-width: #{px2em($small)})',
+  'tablet': 'screen and (min-width: #{px2em($palm)}) and (max-width: #{px2em($small - 1)})',
+);
+
+/**
+ * Mixin que genera media query en base a los alias definidos en los setting
+ * `_settings.responsive.scss`. Ejemplo de uso.
+ *
+ * .foo {
+ *   color: green;
+ *
+ *   @include media(palm) {
+ *     color: red;
+ *   }
+ * }
+ */
+
+@mixin media($media-query) {
+  // Si el alias existe en la lista que indicamos en el setting
+  @if map-has-key($breakpoints, $media-query) {
+    // Crea la regla media-query
+    @media #{map-get($breakpoints, $media-query)} {
+      @content;
+    }
+  }
+
+  // Si aplica a los modelos con notch
+  @else if $media-query == 'notch' {
+    /* stylelint-disable */
+    @supports (padding: max(0)) and (padding: env(safe-area-inset-bottom)) {
+      @content;
+    }
+    /* stylelint-enable */
+  }
+
+  // Si aplica a todos los tamaños no añado nada
+  @else if $media-query == 'all' {
+    @content;
+  }
+
+  // Si no existe ningun alias muestra una alerta
+  @else {
+    @warn 'Oops! Breakpoint "#{$media-query}" does not exist.';
+  }
+}
+
+//
+// Devuelve el nombre del breakpoint para componer el nombre de una clase,
+// cuando se aplica a todos los tamaños de pantalla, no se pone
+//
+
+@function get-breakpoint-sufix($breakpoint) {
+  @if $breakpoint == 'all' {
+    @return '';
+  } @else {
+    @return '-' + $breakpoint;
+  }
+}

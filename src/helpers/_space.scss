@@ -1,0 +1,94 @@
+//
+// Espaciado
+//
+// Modifican los margenes internos y externos de un elemento.
+//
+
+//
+// Las clases se forman con el siguiente formato:
+//
+// .{none}-{property}-{sides}-{breakpoint}-{size}
+//
+// {none} Indica si el tamaño del margen es 0
+//   - no
+//   - ''
+// {property} Indica el tipo de margen, exterior o interior
+//   - margin
+//   - padding
+// {sides} Indica a que lado afecta
+//   - top, bottom, left, right, x, y.
+//   - Si no se indica ningún lado, se aplica a los cuatro
+// {breakpoint} Indica a que tamaño de pantalla afecta
+//   - palm, lap, small, desk, large
+//   - Si no se indica ningún tamaño de pantalla, se aplica a todos
+// {size} Indica el tamaño del margen
+//   - quarter, half, double, triple, quadruple, quintuple, sextuple, auto
+//   - Si no se indica ningún tamaño, se aplica el espaciado estandar
+//   - El valor 'auto' solo se aplica a los valores horizontales 'x'
+//
+// Ejemplos:
+//   .margin               // Margen externo de tamaño estandar a los cuatro lados
+//   .margin-top           // Margen externo de tamaño estandar al lado superior
+//   .margin-top-lap       // Margen externo de tamaño estandar al lado superior solo a tamaños de pantalla móviles
+//   .padding-top-double   // Margen interno de tamaño doble al lado superior
+//   .padding-x-triple     // Margen interno de tamaño triple a los lados derecho e izquierdo
+//   .no-margin-bottom     // Quita el margen externo de abajo
+//
+
+@each $breakpoint in $breakpoints-list {
+  @include media($breakpoint) {
+    // Creo la cadena para formar el nombre de la clase
+    // Cuando afecta a todos los tamaños de pantalla, no se pone
+    $breakpoint: get-breakpoint-sufix($breakpoint);
+
+    @each $property in ('margin', 'padding') {
+      @each $size, $length in $spacing-map {
+        // Cuando no hay espaciado, se añade el prefijo indicando que no hay espaciado
+        $none: '';
+
+        @if $size == 'none' {
+          $none: 'no-';
+        }
+
+        // Obtengo la cadena del tamaño para formar el nombre de la clase
+        $size: get-space-sufix($size);
+
+        .#{$none}#{$property}#{$breakpoint}#{$size} {
+          #{$property}: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-top#{$breakpoint}#{$size} {
+          #{$property}-top: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-right#{$breakpoint}#{$size} {
+          #{$property}-right: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-bottom#{$breakpoint}#{$size} {
+          #{$property}-bottom: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-left#{$breakpoint}#{$size} {
+          #{$property}-left: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-x#{$breakpoint}#{$size} {
+          #{$property}-right: #{$length} !important;
+          #{$property}-left: #{$length} !important;
+        }
+
+        .#{$none}#{$property}-y#{$breakpoint}#{$size} {
+          #{$property}-top: #{$length} !important;
+          #{$property}-bottom: #{$length} !important;
+        }
+      }
+    }
+
+    // Auto class
+    .margin#{$breakpoint}-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+}

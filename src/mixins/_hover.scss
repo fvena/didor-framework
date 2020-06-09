@@ -1,0 +1,14 @@
+/**
+ * HOVER
+ *
+ * Cuando desarrollas una aplicación que puede funcionar para pantallas
+ * táctiles, puedes tener problemas con los efectos hover, el mixin
+ * hover hace que solo se aplicaquen en dispositivos no táctiles.
+ */
+@mixin hover {
+  @media not all and (pointer: coarse) {
+    &:hover:not(:disabled) {
+      @content;
+    }
+  }
+}

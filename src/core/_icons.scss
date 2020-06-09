@@ -1,0 +1,30 @@
+/* recommended css code for vue-svgicon */
+.#{$prefix}icon {
+  color: inherit;
+  display: inline-block;
+  fill: none;
+  stroke: currentColor;
+  vertical-align: middle;
+
+  &.#{$prefix}fill {
+    fill: currentColor;
+    stroke: none;
+  }
+
+  &.#{$prefix}up {
+    /* default */
+    transform: rotate(0deg);
+  }
+
+  &.#{$prefix}right {
+    transform: rotate(90deg);
+  }
+
+  &.#{$prefix}down {
+    transform: rotate(180deg);
+  }
+
+  &.#{$prefix}left {
+    transform: rotate(-90deg);
+  }
+}

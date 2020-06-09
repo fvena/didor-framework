@@ -1,0 +1,40 @@
+.media {
+  align-items: flex-start;
+  display: flex;
+}
+
+.media__body {
+  flex: 1;
+  margin-left: simple();
+}
+
+.media--middle {
+  align-items: center;
+}
+
+.media--bottom {
+  align-items: flex-end;
+}
+
+.media--right {
+  flex-direction: row-reverse;
+  text-align: right;
+
+  .media__body {
+    margin-left: 0;
+    margin-right: simple();
+  }
+}
+
+@include media(palm) {
+  .media__body {
+    margin-left: half();
+  }
+
+  .media--right {
+    .media__body {
+      margin-left: 0;
+      margin-right: half();
+    }
+  }
+}

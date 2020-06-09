@@ -1,0 +1,67 @@
+// Code block
+code,
+pre {
+  background-color: color(gray7);
+  font-family: font-family(monospace);
+  font-size: font-size(small2);
+  font-weight: font-weight(normal);
+  line-height: 1.2rem;
+}
+
+pre {
+  display: block;
+  hyphens: none;
+  overflow: auto;
+  padding: half() simple();
+  position: relative;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+
+  a > & {
+    background-color: inherit;
+    color: inherit;
+    padding: 0;
+  }
+
+  &::after {
+    color: color(gray4);
+    content: attr(data-lang);
+    display: block;
+    font-size: 0.6rem;
+    font-weight: font-weight(bold);
+    height: simple();
+    letter-spacing: 0.08em;
+    line-height: simple();
+    padding: 0 half();
+    position: absolute;
+    right: 0;
+    text-align: right;
+    text-transform: uppercase;
+    top: quarter();
+  }
+}
+
+// Inline code
+:not(pre) > code {
+  border-radius: $border-radius;
+  color: color(brand-dark);
+  font-size: 0.8em;
+  line-height: simple();
+  padding: 0.1rem 0.3rem;
+  white-space: nowrap;
+}
+
+// Keyboard user input
+kbd {
+  background-color: color(gray2);
+  border-radius: $border-radius;
+  color: #ffffff;
+  font-family: font-family(monospace);
+  font-size: 0.8em;
+  line-height: simple();
+  padding: 0.1rem 0.3rem;
+}

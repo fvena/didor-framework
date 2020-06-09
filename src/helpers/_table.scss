@@ -1,0 +1,47 @@
+// Striped Table
+//
+.table--striped {
+  > tr:nth-of-type(odd),
+  tbody > tr:nth-of-type(odd) {
+    /* stylelint-disable-next-line */
+    th,
+    td {
+      background-color: color(gray7);
+    }
+  }
+}
+
+// hover Table
+//
+.table--hover {
+  tbody tr {
+    /* stylelint-disable-next-line */
+    th,
+    td {
+      transition: background-color $transition-duration ease;
+    }
+  }
+
+  tbody tr {
+    @include hover {
+      /* stylelint-disable-next-line */
+      th,
+      td {
+        background-color: color(gray6);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.table-wrapper {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
+  width: 100%;
+
+  table {
+    width: auto;
+  }
+}

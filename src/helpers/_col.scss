@@ -1,0 +1,61 @@
+$grid-columns: 12;
+
+/*
+ * Col Auto Size
+ */
+.col--auto {
+  flex-basis: initial;
+  flex-grow: initial;
+}
+
+/*
+ * Col Expand Size
+ */
+.col--expand {
+  flex: 1;
+  min-width: 1px;
+}
+
+/*
+ * Col Width
+ */
+@for $i from 1 through $grid-columns {
+  .col--cols-#{$i} {
+    flex-basis: round-width($i, $grid-columns);
+    max-width: round-width($i, $grid-columns);
+  }
+}
+
+/*
+ * Col Offset
+ */
+@for $i from 0 through $grid-columns {
+  .col--offset-#{$i} {
+    margin-left: round-width($i, $grid-columns);
+  }
+}
+
+@if ($responsive) {
+  @each $breakpoint in $breakpoints-list {
+    @include media($breakpoint) {
+      /*
+      * Col Width Palm
+      */
+      @for $i from 1 through $grid-columns {
+        .col--#{$breakpoint}--cols-#{$i} {
+          flex-basis: round-width($i, $grid-columns);
+          max-width: round-width($i, $grid-columns);
+        }
+      }
+
+      /*
+      * Col Offset Palm
+      */
+      @for $i from 0 through $grid-columns {
+        .col--#{$breakpoint}--offset-#{$i} {
+          margin-left: round-width($i, $grid-columns);
+        }
+      }
+    }
+  }
+}

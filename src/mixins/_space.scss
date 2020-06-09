@@ -1,0 +1,13 @@
+//
+// Devuelve el nombre del breakpoint para componer el nombre de una clase,
+// cuando se aplica a todos los tamaños de pantalla, no se pone
+//
+@function get-space-sufix($size) {
+  @if $size == 'none' {
+    @return '';
+  } @else if $size == 'simple' {
+    @return '';
+  } @else {
+    @return '-' + $size;
+  }
+}

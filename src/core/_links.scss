@@ -1,0 +1,30 @@
+/**
+ * LINK
+ */
+
+a img {
+  border: 0;
+}
+
+a,
+.link {
+  color: color(link);
+  text-decoration: $link-decoration;
+  transition: color $transition-duration, background-color $transition-duration;
+
+  @include hover {
+    color: color(link-hover);
+    text-decoration: $link-decoration-hover;
+  }
+
+  &:active,
+  &:focus {
+    color: color(link-hover);
+    text-decoration: $link-decoration;
+  }
+
+  a[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

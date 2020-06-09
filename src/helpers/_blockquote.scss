@@ -1,0 +1,35 @@
+.blockquote--bordered {
+  border-left: 0.15rem solid color(brand);
+  padding-left: simple();
+}
+
+.blockquote--left {
+  text-align: left;
+}
+
+.blockquote--center {
+  text-align: center;
+}
+
+.blockquote--right {
+  text-align: right;
+
+  &.blockquote--bordered {
+    border-left: 0;
+    border-right: 0.15rem solid color(brand);
+    padding-left: 0;
+    padding-right: simple();
+  }
+}
+
+@include media(portrait) {
+  .blockquote--bordered {
+    padding-left: half();
+  }
+
+  .blockquote--right {
+    &.blockquote--bordered {
+      padding-right: half();
+    }
+  }
+}

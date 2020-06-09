@@ -1,0 +1,44 @@
+//
+// Tipo de posicionamiento
+//
+// Modifica como se posiciona un elemento.
+//
+@each $position in ('static', 'relative', 'absolute', 'fixed', 'sticky') {
+  .position-#{$position} {
+    position: $position !important;
+  }
+}
+
+//
+// Posicionamiento fijo en la parte superior de la pantalla
+//
+.fixed-top {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $z-index-fixed;
+}
+
+//
+// Posicionamiento fijo en la parte inferior de la pantalla
+//
+.fixed-bottom {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: $z-index-fixed;
+}
+
+//
+// Se posiciona de forma fija en la parte superior de la pantalla
+// cuando haciendo scroll llega a la parte superior
+//
+.sticky-top {
+  @supports (position: sticky) {
+    position: sticky;
+    top: 0;
+    z-index: $z-index-sticky;
+  }
+}
