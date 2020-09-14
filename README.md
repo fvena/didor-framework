@@ -52,11 +52,11 @@ Esta es un micro librería SCSS que te ayudará a construir aplicaciones:
 Puedes instalar Didor en tu proyecto mediante npm o yarn:
 
 ```bash
-npm install @didor/framework --save-dev
+npm install @didor/styles --save-dev
 ```
 
 ```bash
-yarn add @didor/framework
+yarn add @didor/styles
 ```
 
 ## Añadir Didor a nuestro proyecto

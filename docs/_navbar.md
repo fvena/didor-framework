@@ -1,4 +1,4 @@
-- [Home](/home.md)
-- [Comenzar](/getStarted)
-- [Estilos](/didorFramework)
+- [Home](/docs/home.md)
+- [Comenzar](/docs/getStarted)
+- [Estilos](/docs/didorStyles)
 - [Markdown](/didorDocs)
